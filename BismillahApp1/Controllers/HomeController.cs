@@ -24,7 +24,7 @@ namespace BismillahApp1.Controllers
             return View();
         }
 
-        public ActionResult GetStudent(int id)
+        /*public ActionResult GetStudent(int id)
         {
             var students = new[] {
             new { Id = 1, FirstName = "James", LastName = "Bond" },
@@ -43,7 +43,18 @@ namespace BismillahApp1.Controllers
 
             return Content(studentname, "text/plain");
 
+        }*/
+
+
+
+        public ActionResult GetStudentResultSlip (int id)
+        {
+            //File need to be kept inside the project folder
+            string filename = "~/Payslip" + id + ".pdf";
+            return File(filename,"application/pdf");
         }
+
+
     }
 
 
