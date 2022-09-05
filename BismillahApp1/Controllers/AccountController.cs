@@ -6,21 +6,19 @@ using System.Web.Mvc;
 
 namespace BismillahApp1.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
-        // GET: Home
+        // GET: Account
         public ActionResult Index()
         {
             return View();
         }
 
+
         public ActionResult Contact()
         {
-            ViewBag.code = 121;
+            ViewBag.code = 120;
             return View();
         }
-
     }
-
-
 }
