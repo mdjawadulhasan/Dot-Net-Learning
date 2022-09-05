@@ -14,29 +14,21 @@ namespace BismillahApp1.Controllers
             return View();
         }
 
-        public ActionResult Products()
+        public ActionResult ReqExample()
         {
-            return View("COMP");
-        }
-
-        public ActionResult Contact()
-        {
+            ViewBag.url = Request.Url;
+            ViewBag.PhysicalApplicationPath = Request.PhysicalApplicationPath;
+            ViewBag.path = Request.Path;
             return View();
         }
 
-        public ActionResult StudentInfo()
+
+        public ActionResult ResExample()
         {
-            ViewBag.studentid = "20-41958-1";
-            ViewBag.Name = "MD. JAWADUL HASAN";
-            ViewBag.marks = 95;
-            ViewBag.Noofsem = 10;
-            ViewBag.sub = new List<string>() { "DOT NET", "JAVA", "REACT" };
-           
+
+            Response.Write("Hello !");
             return View();
         }
-
-        
-
 
     }
 
