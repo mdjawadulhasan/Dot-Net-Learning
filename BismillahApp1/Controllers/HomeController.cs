@@ -24,11 +24,15 @@ namespace BismillahApp1.Controllers
             return View();
         }
 
-        public ActionResult StudentPage(int id)
+        public ActionResult StudentInfo()
         {
-            string stlinkedinid = "https://www.linkedin.com/in/mdjawadulhasan/" + id;
-            return Redirect(stlinkedinid);
+            ViewBag.studentid = "20-41958-1";
+            ViewBag.Name = "MD. JAWADUL HASAN";
+            return View();
         }
+
+
+        
 
     }
 
