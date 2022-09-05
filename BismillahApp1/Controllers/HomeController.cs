@@ -28,11 +28,15 @@ namespace BismillahApp1.Controllers
         {
             ViewBag.studentid = "20-41958-1";
             ViewBag.Name = "MD. JAWADUL HASAN";
+            ViewBag.marks = 95;
+            ViewBag.Noofsem = 10;
+            ViewBag.sub = new List<string>() { "DOT NET", "JAVA", "REACT" };
+           
             return View();
         }
 
-
         
+
 
     }
 
