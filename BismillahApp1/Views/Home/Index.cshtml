@@ -1,36 +1,11 @@
 ﻿
-<!DOCTYPE html>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-3.6.0.js"></script>
-    <script src="~/Scripts/umd/popper.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<h2>Home Page Content Here</h2>
 
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/home/index">Home</a>
-        <a class="navbar-brand" href="/home/contact">CN</a>
-        <a class="navbar-brand" href="/home/Products">CP</a>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="jumbortron">
-            <h1>Assalamuwalikum Vai !This is your Homepage</h1>
-        </div>
-    </div>
-
-
-</body>
-</html>
+@{ 
+    ViewBag.msg = "Demo";
+}

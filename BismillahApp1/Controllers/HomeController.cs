@@ -9,14 +9,24 @@ namespace BismillahApp1.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+
+        public ActionResult index()
+        {
+            return View();
+        }
+        public ActionResult About()
         {
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.code = 121;
+            return View();
+
+        }
+
+        public ActionResult Profile()
+        {
             return View();
         }
 
