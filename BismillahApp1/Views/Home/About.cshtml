@@ -10,6 +10,12 @@
     ViewBag.msg = "Demo about";
 }
 
+@{ 
+    ViewBag.listtitle = "Educational institute";
+    ViewBag.Items = new List<string>() { "AIUB", "DC", "ISC", "UGPS" };
+    Html.RenderPartial("Partialview");
+}
+
 
 @section SideBarOptions
 
