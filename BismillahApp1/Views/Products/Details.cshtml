@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BismillahApp1.Models.Product
+
+@{
     ViewBag.Title = "Details";
 }
 
@@ -6,17 +8,18 @@
 <table class="table">
     <tr>
         <th>Product Id</th>
-        <td>@ViewBag.MatchingProduct.ProductId</td>
+        <td>@Model.ProductId</td>
     </tr>
     <tr>
         <th>Product Name</th>
-        <td>@ViewBag.MatchingProduct.ProductName</td>
+        <td>@Model.ProductName</td>
     </tr>
     <tr>
         <th>Rate</th>
-        <td>@ViewBag.MatchingProduct.Rate</td>
+        <td>@Model.Rate</td>
     </tr>
 </table>
+
 
 
 

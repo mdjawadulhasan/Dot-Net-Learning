@@ -19,8 +19,8 @@ namespace BismillahApp1.Controllers
                 new Product() { ProductId = 103, ProductName = "Bike", Rate = 94000 }
             };
 
-            ViewBag.products = products;
-            return View();
+            //ViewBag.products = products;
+            return View(products);
         }
 
 
@@ -40,7 +40,7 @@ namespace BismillahApp1.Controllers
                     matchingProduct = item;
                 }
             }
-            ViewBag.MatchingProduct = matchingProduct;
+           // ViewBag.MatchingProduct = matchingProduct;
             return View(matchingProduct);
         }
 
