@@ -41,7 +41,7 @@ namespace BismillahApp1.Controllers
                 }
             }
             ViewBag.MatchingProduct = matchingProduct;
-            return View(matchingProduct);
+            return View();
         }
 
 
