@@ -14,6 +14,9 @@ namespace BismillahApp1.Controllers
             return View();
         }
 
+        //[Route("Products/Details/{id:int?}")]
+
+        [Route("Products/Details/{id:int?}")]
         public ActionResult Details(int? id)
         {
             var producrs = new[]
@@ -39,5 +42,34 @@ namespace BismillahApp1.Controllers
                 return Content(prodname);
             }
         }
+
+
+        [Route("Products/Details2/{ids}")]
+        public ActionResult Details2(string ids)
+        {
+            var producrs = new[]
+            {
+                new {productid=1,productname="xiomi",cost=23000},
+                new {productid=2,productname="Apple",cost=123000}
+            };
+
+            if (ids == null)
+            {
+                return Content("Ekta kisu to den vai !");
+            }
+            else
+            {
+               int prodid=0;
+                foreach (var items in producrs)
+                {
+                    if (items.productname == ids)
+                    {
+                        prodid = items.productid;
+                    }
+                }
+                return Content(prodid.ToString());
+            }
+        }
+
     }
 }

@@ -10,21 +10,24 @@ namespace BismillahApp1.Controllers
     {
         // GET: Home
 
+        [Route("Home/index")]
+        [Route("")]
         public ActionResult index()
         {
             return View();
         }
-        public ActionResult About()
-        {
-            return View();
-        }
 
+        
+
+        [Route("Home/Contact")]
         public ActionResult Contact()
         {
             return View();
 
         }
 
+
+        [Route("Profile")]
         public ActionResult Profile()
         {
             return View();
