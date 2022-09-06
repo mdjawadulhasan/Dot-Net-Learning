@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BismillahApp1.Models;
 
 namespace BismillahApp1.Controllers
 {
@@ -11,65 +12,39 @@ namespace BismillahApp1.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            List<Product> products = new List<Product>()
+            {
+                new Product() { ProductId = 101, ProductName = "AC", Rate = 45000 },
+                new Product() { ProductId = 102, ProductName = "Mobile", Rate = 38000 },
+                new Product() { ProductId = 103, ProductName = "Bike", Rate = 94000 }
+            };
+
+            ViewBag.products = products;
             return View();
         }
 
-        //[Route("Products/Details/{id:int?}")]
 
-        [Route("Products/Details/{id:int?}")]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            var producrs = new[]
+            List<Product> products = new List<Product>()
             {
-                new {productid=1,productname="xiomi",cost=23000},
-                new {productid=2,productname="Apple",cost=123000}
+                new Product() { ProductId = 101, ProductName = "AC", Rate = 45000 },
+                new Product() { ProductId = 102, ProductName = "Mobile", Rate = 38000 },
+                new Product() { ProductId = 103, ProductName = "Bike", Rate = 94000 }
             };
-
-            if (id == null)
+            Product matchingProduct = null;
+            foreach (var item in products)
             {
-                return Content("Kisu ekta to den vai !");
-            }
-            else
-            {
-                string prodname = "";
-                foreach (var items in producrs)
+                if (item.ProductId == id)
                 {
-                    if (items.productid == id)
-                    {
-                        prodname = items.productname;
-                    }
+                    matchingProduct = item;
                 }
-                return Content(prodname);
             }
+            ViewBag.MatchingProduct = matchingProduct;
+            return View(matchingProduct);
         }
 
 
-        [Route("Products/Details2/{ids}")]
-        public ActionResult Details2(string ids)
-        {
-            var producrs = new[]
-            {
-                new {productid=1,productname="xiomi",cost=23000},
-                new {productid=2,productname="Apple",cost=123000}
-            };
-
-            if (ids == null)
-            {
-                return Content("Ekta kisu to den vai !");
-            }
-            else
-            {
-               int prodid=0;
-                foreach (var items in producrs)
-                {
-                    if (items.productname == ids)
-                    {
-                        prodid = items.productid;
-                    }
-                }
-                return Content(prodid.ToString());
-            }
-        }
 
     }
 }
