@@ -45,6 +45,17 @@ namespace BismillahApp1.Controllers
         }
 
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Product P)
+        {
+            return View();
+        }
+
 
     }
 }
