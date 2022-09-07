@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BismillahApp1.Models;
 
 namespace BismillahApp1
 {
@@ -13,6 +14,7 @@ namespace BismillahApp1
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinders.Binders.Add(typeof(Student),new CustomBinder());
         }
     }
 }
