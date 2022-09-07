@@ -51,7 +51,7 @@ namespace BismillahApp1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product P)
+        public ActionResult Create([Bind(Include = "ProductId,ProductName")] Product P)
         {
             return View();
         }
