@@ -13,7 +13,7 @@ namespace BismillahApp1.Controllers
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.ToList();
+            List<Product> products = db.Products.Where(temp=>temp.CategoryID==1 && temp.Price>=50000).ToList();
             return View(products);
         }
     }
