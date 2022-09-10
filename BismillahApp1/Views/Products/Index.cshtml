@@ -2,31 +2,33 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
 }
 
 <h2>Products</h2>
-<a href="@Url.Action("create","Products")">Create Products</a>
-
-
 <table class="table">
-    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Date of Purchase</th>
+        <th>Availability Status</th>
+        <th>CategoryID</th>
+        <th>BrandID</th>
+        <th>Active</th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Rate</th>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td>@item.Price.Value.ToString("C")</td>
+            <td>@item.DateOfPurchase.Value.ToString("d/M/yyyy")</td>
+            <td>@item.AvailabilityStatus</td>
+            <td>@item.CategoryID</td>
+            <td>@item.BrandID</td>
+            <td>@item.Active</td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.ProductId</td>
-                <td><a href="/products/details/@item.ProductId">@item.ProductName </a></td>
-                <td>@item.Rate</td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>
-
-
 

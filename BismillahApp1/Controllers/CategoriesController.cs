@@ -7,14 +7,14 @@ using BismillahApp1.Models;
 
 namespace BismillahApp1.Controllers
 {
-    public class ProductsController : Controller
+    public class CategoriesController : Controller
     {
-        // GET: Products
+        // GET: Categories
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.ToList();
-            return View(products);
+            List<Category>categories= db.Categories.ToList();//getting the data from db
+            return View(categories);
         }
     }
 }

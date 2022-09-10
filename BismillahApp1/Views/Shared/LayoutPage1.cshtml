@@ -27,10 +27,10 @@
                     <a class="nav-link" href="/home/index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/home/about">About</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/home/contact">Contact</a>
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/products/index">Products</a>
@@ -47,9 +47,10 @@
         <div class="row">
             <div class="col-2-text-white" style="background-color:bisque;min-height:1050px;padding:0px">
                 <div class="list-group">
-                    <a href="#" class="list-group-item" style="background-color:transparent">Favourites</a>
-                    <a href="#" class="list-group-item" style="background-color:transparent">Products</a>
-                    <a href="#" class="list-group-item" style="background-color:transparent">Orders</a>
+                    <a href="/home/index" class="list-group-item" style="background-color:transparent">Home</a>
+                    <a href="/categories/index" class="list-group-item" style="background-color:transparent">Categories</a>
+                    <a href="/brands/index" class="list-group-item" style="background-color:transparent">Brands</a>
+                    <a href="/products/index" class="list-group-item" style="background-color:transparent">Products</a>
                     @RenderSection("SideBarOptions", required: false)
                 </div>
             </div>
