@@ -10,10 +10,11 @@ namespace BismillahApp1.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string search=" ")
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.Where(temp=>temp.CategoryID==1 && temp.Price>=50000).ToList();
+            ViewBag.search = search;
+            List<Product> products = db.Products.Where(temp=>temp.ProductName.Contains(search)).ToList();
             return View(products);
         }
     }

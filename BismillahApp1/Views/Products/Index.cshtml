@@ -5,7 +5,18 @@
     Layout = "~/Views/Shared/LayoutPage1.cshtml";
 }
 
+
+
 <h2>Products</h2>
+
+<form class="form-inline" action="/products/index">
+    <label for="search" class="mr-1">Search:</label>
+    <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" value="@ViewBag.search">
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
+
+
+
 <table class="table">
     <tr>
         <th>Product ID</th>
