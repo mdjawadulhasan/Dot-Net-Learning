@@ -28,6 +28,9 @@ namespace BismillahApp1.Controllers
 
         public ActionResult Create()
         {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            ViewBag.Categories = db.Categories.ToList();
+            ViewBag.Brands = db.Brands.ToList();
             return View();
         }
 
@@ -45,6 +48,8 @@ namespace BismillahApp1.Controllers
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
             Product exp= db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
+            ViewBag.Categories = db.Categories.ToList();
+            ViewBag.Brands = db.Brands.ToList();
             return View(exp);
         }
 
