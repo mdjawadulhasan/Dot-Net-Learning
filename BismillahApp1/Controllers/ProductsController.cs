@@ -39,5 +39,29 @@ namespace BismillahApp1.Controllers
             db.SaveChanges();
             return RedirectToAction("index");
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            Product exp= db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
+            return View(exp);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Product p)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            Product existingProduct = db.Products.Where(temp => temp.ProductID == p.ProductID).FirstOrDefault();
+            existingProduct.ProductName = p.ProductName;
+            existingProduct.Price = p.Price;
+            existingProduct.DateOfPurchase = p.DateOfPurchase;
+            existingProduct.CategoryID = p.CategoryID;
+            existingProduct.BrandID = p.BrandID;
+            existingProduct.AvailabilityStatus = p.AvailabilityStatus;
+            existingProduct.Active = p.Active;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

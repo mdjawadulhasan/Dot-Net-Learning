@@ -11,6 +11,7 @@
 
 <a href="/products/create" class="btn btn-danger">Create</a>
 
+
 <form class="form-inline" action="/products/index">
     <label for="search" class="mr-1">Search:</label>
     <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" value="@ViewBag.search">
@@ -41,7 +42,14 @@
             <td>@item.CategoryID</td>
             <td>@item.BrandID</td>
             <td>@item.Active</td>
-            <td><a href="/products/details/@item.ProductID"> Details </a></td>
+            <td>
+                <a href="/products/details/@item.ProductID"> Details </a>
+                <a href="/products/edit/@item.ProductID">Edit</a>
+
+            </td>
+
+
+
         </tr>
     }
 </table>
