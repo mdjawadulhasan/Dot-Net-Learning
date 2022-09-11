@@ -63,5 +63,14 @@ namespace BismillahApp1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            Product exp = db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
+            db.Products.Remove(exp);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

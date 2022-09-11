@@ -30,6 +30,7 @@
         <th>CategoryID</th>
         <th>BrandID</th>
         <th>Active</th>
+        <th>Modify</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -43,9 +44,9 @@
             <td>@item.BrandID</td>
             <td>@item.Active</td>
             <td>
-                <a href="/products/details/@item.ProductID"> Details </a>
-                <a href="/products/edit/@item.ProductID">Edit</a>
-
+                <a href="/products/details/@item.ProductID" class="btn btn-primary"> Details </a>
+                <a href="/products/edit/@item.ProductID" class="btn btn-success">Edit</a>
+                <a href="/products/delete/@item.ProductID" class="btn btn-danger">Delete</a>
             </td>
 
 
