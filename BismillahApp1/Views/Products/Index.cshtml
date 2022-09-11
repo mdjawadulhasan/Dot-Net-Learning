@@ -37,11 +37,31 @@
         <tr>
             <td>@item.ProductID</td>
             <td>@item.ProductName</td>
-            <td>@item.Price.Value.ToString("C")</td>
-            <td>@item.DateOfPurchase.Value.ToString("d/M/yyyy")</td>
+            <td>
+                @if (item.Price.HasValue)
+                {
+                    <span>@item.Price.Value.ToString("C")</span>
+                }
+            </td>
+            <td>
+                @if (item.DateOfPurchase.HasValue)
+                {
+                    <span>@item.DateOfPurchase.Value.ToString("d/M/yyyy")</span>
+                }
+            </td>
             <td>@item.AvailabilityStatus</td>
-            <td>@item.CategoryID</td>
-            <td>@item.BrandID</td>
+            <td>
+                @if (item.Category != null)
+                {
+                    <span>@item.Category.CategoryName</span>
+                }
+            </td>
+            <td>
+                @if (item.Brand != null)
+                {
+                    <span>@item.Brand.BrandName</span>
+                }
+            </td>
             <td>@item.Active</td>
             <td>
                 <a href="/products/details/@item.ProductID" class="btn btn-primary"> Details </a>
