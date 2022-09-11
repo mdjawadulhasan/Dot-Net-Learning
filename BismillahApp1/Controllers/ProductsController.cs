@@ -25,5 +25,19 @@ namespace BismillahApp1.Controllers
             Product p = db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
             return View(p);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Product p)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            db.Products.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }
