@@ -22,6 +22,7 @@ namespace BismillahApp1.Models
         public Nullable<long> CategoryID { get; set; }
         public Nullable<long> BrandID { get; set; }
         public Nullable<bool> Active { get; set; }
+        public string photo { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }

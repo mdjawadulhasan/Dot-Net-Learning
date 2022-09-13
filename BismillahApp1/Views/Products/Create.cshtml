@@ -6,7 +6,7 @@
 }
 
 <h2>Create Product</h2>
-<form action="/products/create" method="post">
+<form action="/products/create" method="post" enctype="multipart/form-data">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="ProductName">Product Name</label>
@@ -43,7 +43,7 @@
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label for="BrandID">Brand ID</label>
+            <label for="BrandID">Brand</label>
             <select class="form-control" id="BrandID" name="BrandID">
                 <option value="">Please Select</option>
                 @foreach (var cat in ViewBag.Brands)
@@ -54,8 +54,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="Image">Image</label>
+        <input type="file" class="form-control-file" id="Image" name="photo" />
+    </div>
+    <div class="form-group">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="Active" name="Active">
+            <input class="form-check-input" type="checkbox" id="Active" name="Active" value="true">
             <label class="form-check-label" for="Active">
                 Active
             </label>
@@ -65,5 +69,6 @@
     <button type="submit" class="btn btn-success">Create</button>
     <a class="btn btn-danger" href="/products/index">Cancel</a>
 </form>
+
 
 

@@ -100,9 +100,17 @@ namespace BismillahApp1.Controllers
         public ActionResult Create(Product p)
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            if (Request.Files.Count >= 1)
+            {
+                var file = Request.Files[0];
+                var imgBytes = new Byte[file.ContentLength];
+                file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                p.photo = base64String;
+            }
             db.Products.Add(p);
             db.SaveChanges();
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
 
 
