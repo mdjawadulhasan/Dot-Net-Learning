@@ -127,6 +127,16 @@ namespace BismillahApp1.Controllers
         public ActionResult Edit(Product p)
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            if (Request.Files.Count >= 1)
+            {
+                var file = Request.Files[0];
+                var imgBytes = new Byte[file.ContentLength];
+                file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                p.photo = base64String;
+            }
+
+
             Product existingProduct = db.Products.Where(temp => temp.ProductID == p.ProductID).FirstOrDefault();
             existingProduct.ProductName = p.ProductName;
             existingProduct.Price = p.Price;
@@ -135,6 +145,7 @@ namespace BismillahApp1.Controllers
             existingProduct.BrandID = p.BrandID;
             existingProduct.AvailabilityStatus = p.AvailabilityStatus;
             existingProduct.Active = p.Active;
+            existingProduct.photo = p.photo;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
