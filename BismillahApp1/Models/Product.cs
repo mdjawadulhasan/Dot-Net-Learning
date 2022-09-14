@@ -19,6 +19,8 @@ namespace BismillahApp1.Models
         public Nullable<bool> Active { get; set; }
         public string photo { get; set; }
 
+        public Nullable<decimal>Quantitty { get; set; }
+
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
     }

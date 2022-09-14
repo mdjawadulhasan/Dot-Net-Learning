@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using BismillahApp1.Migrations;
 
 namespace BismillahApp1.Models
 {
@@ -10,7 +11,7 @@ namespace BismillahApp1.Models
     {
         public CompanyDbContext() : base("MyConnectionString")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CompanyDbContext, Configuration>());
         }
 
         public DbSet<Brand> Brands { get; set; }
