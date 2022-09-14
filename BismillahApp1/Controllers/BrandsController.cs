@@ -12,7 +12,7 @@ namespace BismillahApp1.Controllers
         // GET: Brands
         public ActionResult Index()
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             List<Brand> brands = db.Brands.ToList();
             return View(brands);
         }
