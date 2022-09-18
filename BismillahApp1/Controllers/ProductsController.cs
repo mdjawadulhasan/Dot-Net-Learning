@@ -12,7 +12,7 @@ namespace BismillahApp1.Controllers
         // GET: Products
         public ActionResult Index(string search = "", string SortColumn = "ProductName", string IconClass = "fa-sort-asc", int PageNo = 1)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             ViewBag.search = search;
             List<Product> products = db.Products.Where(temp => temp.ProductName.Contains(search)).ToList();
 
@@ -83,14 +83,14 @@ namespace BismillahApp1.Controllers
 
         public ActionResult Details(long id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product p = db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
             return View(p);
         }
 
         public ActionResult Create()
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
             return View();
@@ -99,7 +99,7 @@ namespace BismillahApp1.Controllers
         [HttpPost]
         public ActionResult Create(Product p)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             if (Request.Files.Count >= 1)
             {
                 var file = Request.Files[0];
@@ -116,7 +116,7 @@ namespace BismillahApp1.Controllers
 
         public ActionResult Edit(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product exp= db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
@@ -126,7 +126,7 @@ namespace BismillahApp1.Controllers
         [HttpPost]
         public ActionResult Edit(Product p)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             if (Request.Files.Count >= 1)
             {
                 var file = Request.Files[0];
@@ -152,7 +152,7 @@ namespace BismillahApp1.Controllers
 
         public ActionResult Delete(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product exp = db.Products.Where(temp => temp.ProductID == id).FirstOrDefault();
             db.Products.Remove(exp);
             db.SaveChanges();

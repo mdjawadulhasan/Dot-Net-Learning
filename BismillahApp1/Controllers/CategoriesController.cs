@@ -12,7 +12,7 @@ namespace BismillahApp1.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             List<Category>categories= db.Categories.ToList();//getting the data from db
             return View(categories);
         }
