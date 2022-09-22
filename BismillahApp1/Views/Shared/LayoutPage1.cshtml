@@ -34,9 +34,13 @@
                 </li>
             </ul>
         </div>
-        <div class="col-4-text-white">
-            @ViewBag.msg
-        </div>
+        @if (User.Identity.IsAuthenticated == true)
+        {
+
+            <div class="col-4-text-white">
+                Welcome @User.Identity.Name
+            </div>
+        }
     </nav>
 
 
